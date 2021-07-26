@@ -9,7 +9,11 @@ import com.revature.utils.HibernateUtil;
 
 public class UserDAO implements UserDAOInterface
 {
-
+	/*These are here for easy copy/paste
+	Session ses = HibernateUtil.getSession();
+	Transaction tx = HibernateUtil.startTransaction();
+	*/
+	
 	public void addUser(User newUser) 
 	{
 		Session ses = HibernateUtil.getSession();
@@ -84,9 +88,13 @@ public class UserDAO implements UserDAOInterface
 		return targetUser;
 	}
 
-	public User getUserById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public User getUserById(int id) 
+	{
+		Session ses = HibernateUtil.getSession();
+		User list = ses.get(User.class, id);
+		
+		HibernateUtil.closeSession();
+		return list;
 	}
 
 	public void updateUser(User updatedUser) {

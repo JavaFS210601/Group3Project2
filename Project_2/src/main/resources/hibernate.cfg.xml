@@ -33,7 +33,7 @@
 	<mapping class="com.revature.models.Genre"/>
 	<mapping class="com.revature.models.Video"/>
 	<mapping class="com.revature.models.Favorite"/>
-	<mapping class="com.revature.models.Queue"/>
+	<mapping class="com.revature.models.VideoQueue"/>
 	<mapping class="com.revature.models.Watched"/>
 	
  	

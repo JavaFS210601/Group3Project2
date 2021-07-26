@@ -28,7 +28,7 @@ public class Watched
 	@JoinColumn(name="user_id", nullable = false, unique = true)
 	private User user;
 	//This is the relation for Watched to Video
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	@JoinTable(
 			name="watched_videos_list",
 			joinColumns = @JoinColumn(name="watched_id"),
@@ -55,7 +55,7 @@ public class Watched
 
 	@Override
 	public String toString() {
-		return "Watched [watched_id=" + watched_id + ", user=" + user + ", watched_videos_list=" + watched_videos_list + "]";
+		return "Watched [watched_id=" + watched_id + ", \nuser=" + user + ", \nwatched_videos_list=" + watched_videos_list + "]";
 	}
 
 	@Override

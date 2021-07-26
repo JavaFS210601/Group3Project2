@@ -24,11 +24,11 @@ public class Favorite
 	@Column(name="favorite_id")
 	private int favorite_id;
 	//this is the relation for Favorite to User
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	@JoinColumn(name="user_id", nullable = false, unique = true)
 	private User user;
 	//this is the relation for Favorite to Video
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	@JoinTable(
 			name="favorite_videos_list",
 			joinColumns = @JoinColumn(name="favorite_id"),
@@ -109,11 +109,11 @@ public class Favorite
 		this.user = user;
 	}
 
-	public List<Video> getFavorite_videos_list() {
+	public List<Video> getVideos() {
 		return favorite_videos_list;
 	}
 
-	public void setFavorite_videos_list(List<Video> favorite_videos_list) {
+	public void setVideos(List<Video> favorite_videos_list) {
 		this.favorite_videos_list = favorite_videos_list;
 	}
 

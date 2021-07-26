@@ -15,12 +15,14 @@ public interface FavoritesDAOInterface
 	//get an entry by it's ID
 	public Favorite getFavoriteById(int id);
 	//get an entry by the username
-	public Favorite getFavoriteByUsername(String username);
+	public Favorite getFavoriteByUserid(int id);
 	//update an entry
 	public void updateFavorite(Favorite updatedFavorite);
 	//delete an entry
 	public boolean removeFavorite(Favorite target);
 	//append a video to a list
 	//THIS MAY NEED REVISION
-	public void appendVideo(User user, Video video, Favorite list);
+	public void appendVideo(User user, Video video);
+	public boolean isEmpty(int id);
+	//updates a Watched list
 }

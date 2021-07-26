@@ -10,7 +10,11 @@ import com.revature.utils.HibernateUtil;
 
 public class GenreDAO implements GenreDAOInterface 
 {
-
+	/*These are here for easy copy/paste
+	Session ses = HibernateUtil.getSession();
+	Transaction tx = HibernateUtil.startTransaction();
+	*/
+	
 	public void addGenre(Genre newGenre) 
 	{
 		Session ses = HibernateUtil.getSession();

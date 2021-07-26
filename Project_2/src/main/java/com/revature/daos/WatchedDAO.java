@@ -5,33 +5,47 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.revature.models.User;
 import com.revature.models.Video;
 import com.revature.models.Watched;
 import com.revature.utils.HibernateUtil;
 
-public class WatchedDAO implements WatchedDAOInterface {
+public class WatchedDAO implements WatchedDAOInterface 
+{
+	/*These are here for easy copy/paste
+	Session ses = HibernateUtil.getSession();
+	Transaction tx = HibernateUtil.startTransaction();
+	*/
 
+	
 	public void addWatched(Watched newList) 
 	{
-		{
-			Session ses = HibernateUtil.getSession();
-			Transaction tx = HibernateUtil.startTransaction();
+		Session ses = HibernateUtil.getSession();
+		Transaction tx = HibernateUtil.startTransaction();
 
-			ses.save(newList);
-			//ACTUALLY ****ING COMMIT IT
-			tx.commit();
-			
-			HibernateUtil.closeSession();
-		}
-
-
+		ses.save(newList);
+		//ACTUALLY ****ING COMMIT IT
+		tx.commit();
+		
+		HibernateUtil.closeSession();
 	}
 
 	public Watched getWatchedByUserId(int id) 
 	{
 		Session ses = HibernateUtil.getSession();
 		
-		Watched targetList = ses.get(Watched.class, id);
+		List<Watched> totalList = getAllWatched();
+		
+		Watched targetList = new Watched();
+		
+		for(Watched w : totalList)
+		{
+			if(w.getUser().getId() == id)
+			{
+				targetList = w;
+				break;
+			}
+		}
 		
 		return targetList;
 	}
@@ -43,7 +57,7 @@ public class WatchedDAO implements WatchedDAOInterface {
 		
 		Watched targetList = getWatchedByUserId(id);
 		//check if the list is empty
-		if(targetList.getVideos() == null)
+		if(targetList.getVideos().size() == 0)
 		{
 			//the list is empty, set the boolean to true
 			isEmpty = true;
@@ -87,6 +101,40 @@ public class WatchedDAO implements WatchedDAOInterface {
 		}
 		
 		return isPresent;
+	}
+
+	public void appendVideo(User user, Video video) 
+	{
+		Session ses = HibernateUtil.getSession();
+		Transaction tx = HibernateUtil.startTransaction();
+		String sql = "from Watched where user_id = '" + user.getId() + "'";
+		List<Watched> list = ses.createQuery(sql).list();
+		//if the list is not empty (We got something back)
+		if(list.size() > 0)
+		{
+			//access the first item in the list, access the video list,append the video
+			list.get(0).getVideos().add(video);
+			//update the entry in the DB
+			ses.merge(list.get(0));
+			//commit the transaction
+			tx.commit();
+		}
+		HibernateUtil.closeSession();
+	}
+
+	public List<Watched> getAllWatched() 
+	{
+		Session ses = HibernateUtil.getSession();
+		List<Watched> list = ses.createQuery("from Watched").list();
+		return list;
+	}
+
+	public boolean removeWatched(Watched list) 
+	{
+		Session ses = HibernateUtil.getSession();
+		Transaction tx = HibernateUtil.startTransaction();
+		ses.delete(list);
+		return false;
 	}
 	
 	

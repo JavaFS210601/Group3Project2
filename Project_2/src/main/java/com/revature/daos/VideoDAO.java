@@ -15,6 +15,11 @@ public class VideoDAO implements VideoDAOInterface
 	 * OF HEADACHE IN THE FUTURE. I SOLVED MY JOIN TABLE PROBLEM WHEN ADDING VIDEOS WITH
 	 * "Transaction.commit();". I DONT KNOW WHY THIS WAS A PROBLEM, BUT IT WAS AND I AM MAD.
 	 */
+	/*These are here for easy copy/paste
+	Session ses = HibernateUtil.getSession();
+	Transaction tx = HibernateUtil.startTransaction();
+	*/
+	
 	public void addVideo(Video newVideo) 
 	{
 		Session ses = HibernateUtil.getSession();

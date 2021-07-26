@@ -54,7 +54,7 @@ public class Video
 	private List<Genre> genre_list;
 	//This is the relation for Queue and Video
 	@ManyToMany(mappedBy="queue_videos_list")
-	private List<Queue> queue_list;
+	private List<VideoQueue> queue_list;
 	//This is the relation for Favorite to Video
 	@ManyToMany(mappedBy="favorite_videos_list")
 	private List<Favorite> favorite_list;

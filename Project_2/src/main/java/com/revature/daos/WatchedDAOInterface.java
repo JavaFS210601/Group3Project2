@@ -22,7 +22,7 @@ public interface WatchedDAOInterface
 	public boolean isPresent(int user_id, int video_id);
 	//append a new video to a users Watched list.
 	//THIS MAY NEED REVISION
-	public void appendVideo(User user, Video video, Watched list);
+	public void appendVideo(User user, Video video);
 	//Get all entries
 	public List<Watched> getAllWatched();
 	//remove an entry, should be called when a user is removed from the users table

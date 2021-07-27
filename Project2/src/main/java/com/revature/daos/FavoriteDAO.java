@@ -11,7 +11,7 @@ import com.revature.models.Video;
 import com.revature.models.Watched;
 import com.revature.utils.HibernateUtil;
 
-public class FavoriteDAO implements FavoritesDAOInterface 
+public class FavoriteDAO 
 {
 	/*These are here for easy copy/paste
 	Session ses = HibernateUtil.getSession();

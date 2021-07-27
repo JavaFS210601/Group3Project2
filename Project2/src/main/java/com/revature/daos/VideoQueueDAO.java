@@ -12,7 +12,7 @@ import com.revature.models.Video;
 import com.revature.models.VideoQueue;
 import com.revature.utils.HibernateUtil;
 
-public class VideoQueueDAO implements VideoQueueDAOInterface 
+public class VideoQueueDAO
 {
 	/*These are here for easy copy/paste
 	Session ses = HibernateUtil.getSession();

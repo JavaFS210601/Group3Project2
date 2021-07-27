@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 import com.revature.models.Video;
 import com.revature.utils.HibernateUtil;
 
-public class VideoDAO implements VideoDAOInterface 
+public class VideoDAO 
 {
 	/*
 	 * REMINDER TO SELF: COMMIT ALL TRANSACTIONS, IT WILL PROBABLY SAVE YOU A LARGE AMOUNT

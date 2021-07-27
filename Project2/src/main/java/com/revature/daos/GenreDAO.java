@@ -8,7 +8,7 @@ import com.revature.models.Genre;
 import com.revature.models.User;
 import com.revature.utils.HibernateUtil;
 
-public class GenreDAO implements GenreDAOInterface 
+public class GenreDAO 
 {
 	/*These are here for easy copy/paste
 	Session ses = HibernateUtil.getSession();

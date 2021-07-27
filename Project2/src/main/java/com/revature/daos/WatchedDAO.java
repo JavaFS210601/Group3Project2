@@ -103,6 +103,7 @@ public class WatchedDAO implements WatchedDAOInterface
 		return isPresent;
 	}
 
+<<<<<<< Updated upstream:Project2/src/main/java/com/revature/daos/WatchedDAO.java
 	public void appendVideo(User user, Video video) 
 	{
 		Session ses = HibernateUtil.getSession();
@@ -134,6 +135,23 @@ public class WatchedDAO implements WatchedDAOInterface
 		Session ses = HibernateUtil.getSession();
 		Transaction tx = HibernateUtil.startTransaction();
 		ses.delete(list);
+=======
+	@Override
+	public void appendVideo(User user, Video video, Watched list) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Watched> getAllWatched() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean removeWatched(Watched target) {
+		// TODO Auto-generated method stub
+>>>>>>> Stashed changes:Project_2/src/main/java/com/revature/daos/WatchedDAO.java
 		return false;
 	}
 	

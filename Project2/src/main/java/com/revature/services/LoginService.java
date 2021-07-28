@@ -2,13 +2,17 @@ package com.revature.services;
 
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.revature.daos.UserDAO;
 import com.revature.models.User;
 
 @Service
+@SessionAttributes("Session")
 public class LoginService 
 {
 	private UserDAO userDao;
@@ -17,6 +21,7 @@ public class LoginService
 		super();
 		this.userDao = userDao;
 	}
+	
 	
 	public boolean login(User user)
 	{

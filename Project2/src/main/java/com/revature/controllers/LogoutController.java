@@ -1,0 +1,11 @@
+package com.revature.controllers;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(value="/login")
+public class LogoutController 
+{
+	//not sure if this is necessary. Logout might be handled by 
+}

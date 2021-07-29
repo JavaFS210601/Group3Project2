@@ -38,8 +38,30 @@ public class LoginService
 			{
 				//if the passwords are the same, return true
 				authenticated = true;
-			}
+			} 
 		}
 		return authenticated;
 	}
+	
+	
+//	public User login(User user)
+//	{
+//		boolean authenticated = false;
+//		//query the database for the user
+//		Optional<User> rtnUser = userDao.findByUsername(user.getUsername());
+//		//check if the returned object is null, nothing
+//		if(rtnUser.isPresent())
+//		{
+//			//get the User Object from the Optional
+//			User phUser = rtnUser.get();
+//			//Compare the two passwords
+//			if(user.getPassword().compareTo(phUser.getPassword()) == 0)
+//			{
+//				//if the passwords are the same, return true
+//				authenticated = true;
+//				return phUser;
+//			} 
+//		}
+//		return null;
+//	}
 }

@@ -1,16 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from '../models/user';
+import { Userlogin } from '../models/userlogin';
 
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class SigninService {
 
-  constructor(private httpClient:HttpClient) { }
+
+  constructor(private http:HttpClient) { }
 
 
-  signInUser(userloginInput : any) {
-    return this.httpClient.post('http://localhost:8092/notNetflix/login', userloginInput);
+
+  signInUser(userCredentials:any): Observable<User> {
+    return this.http.post('http://localhost:9000/notNetflix/login', userCredentials) as Observable<User>;
   }
 }

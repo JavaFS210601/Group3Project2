@@ -1,4 +1,7 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
+import { Userlogin } from 'src/app/models/userlogin';
 import { SigninService } from 'src/app/services/signin.service';
 
 @Component({
@@ -8,54 +11,47 @@ import { SigninService } from 'src/app/services/signin.service';
 })
 export class SigninComponent implements OnInit {
 
+  public username:string ="";
+  public password:string = "";
+
+  public userLogin:any =null;
+
+
   constructor(private signInService: SigninService) { }
 
-  messageTrue = false;
+
+
+  // messageTrue = false;
 
   ngOnInit(): void {
   }
 
 
 
-  signIn() {
+  signIn():void {
 
-    let user_name = document.getElementsByName('username');
-    let passWord =  document.getElementsByName('password');
+    let userCredentials:Userlogin = {
 
-    let user_login = {
-      username:user_name,
-      password:passWord
+      username: this.username,
+      password: this.password
 
     }
 
-    this.signInService.signInUser(user_login).subscribe(
-      data => {
-        console.log(data);
-        this.messageTrue = true;
-      });
-
-
+    this.signInService.signInUser(userCredentials).subscribe(
+      (data: User)  => { 
+        this.userLogin = data;
+        console.log(this.userLogin);
+        // location.assign('userhome'); //use the route path not the app-user-homepage selector!!!
+        //this works and sends user to homepage. Now I need to be able to share sign in info w/ userhome & userprofile
+      },
+    
+      () => {
+        this.userLogin = null;
+        alert("Something went wrong signing you in!");
+        console.log("Something went wrong signing you in!");
+      }
+      );
   }
 
 
-
-
 }
-
-  // //This is the function that gets our pokemon object given a user input
-  // //getPoke() function goes here...it utilizes the getPokeFromApi() in PokemonService
-  // //Thus, it will return an observable. We need to subscribe tp the observable to get its message(data)
-  // getPoke():void{
-  //   //getPokemonFromApi returns an observable, so we're gonna subscribe to it to see its message
-  //   this.ps.getPokemonFromApi(this.input).subscribe(
-  //     //we turn the message we get into a pokemon object and assign it to our pokemon variable above
-  //     (data:Pokemon) => { this.pokemon = data; },//this happens if things go right
-
-  //     //if things go wrong...set the pokemon variable = null, since we didn't get any data back
-  //     () => {
-  //       this.pokemon = null; //for readability & to reset input...
-  //       console.log("Something went wrong catching your Pokemon!!!");
-  //     }
-
-  //   )
-  // }

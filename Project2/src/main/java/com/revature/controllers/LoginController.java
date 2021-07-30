@@ -1,5 +1,9 @@
 package com.revature.controllers;
 
+import java.net.http.HttpResponse;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +36,7 @@ public class LoginController
 	}
 
 	@PostMapping
-	public ResponseEntity userLogin(@RequestBody User user, HttpSession session)
+	public ResponseEntity userLogin(@RequestBody User user, HttpSession session, HttpServletResponse response)
 	{
 		//check if the user credentials are correct
 		if(ls.login(user))
@@ -42,6 +46,8 @@ public class LoginController
 			user.setPassword("");
 			session.setAttribute("user", user);
 			System.out.println("hello");
+			Cookie cookie = new Cookie("Greeting", "Hello");
+			response.addCookie(cookie);
 			return ResponseEntity.status(200).body(user);
 		}
 		return ResponseEntity.status(401).build();

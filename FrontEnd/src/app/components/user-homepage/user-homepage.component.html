@@ -1,1 +1,31 @@
-<p>user-homepage works!</p>
+<br>
+<div class="container">
+
+<p>Search Movie: </p>     
+<input type = "text" placeholder = "moon" name = "movie" [(ngModel)] = "movieSearch" required ngModel/>
+<button (click) = "searchForMovies()">Search</button>
+
+
+<div class = "row">
+
+  <div *ngFor = "let movie of movieSearchResult.results" class = "col-sm-12 col-md-6 col-lg-4">
+
+    <h2>Movie ID {{movie.id}}</h2>
+    <p>Title {{movie.original_title}}</p>
+    <p>Overview {{movie.overview}}</p>
+    <p>IMDB ID {{movie.imdb_id}}</p>
+    <p>Popularity{{movie.popularity}}</p>
+    <p>Status {{movie.status}}</p>
+    <img src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" alt="Chicago" width="500" height="500">
+    <p>Release Date{{movie.release_date}}</p>
+    <img src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}" alt="Chicago" width="500" height="500">
+  
+  </div>
+
+
+</div>
+
+
+<router-outlet></router-outlet>
+
+    

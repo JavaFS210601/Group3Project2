@@ -1,18 +1,20 @@
-<nav id = "customNav" class = "navbar-expand-sm">
-    <ul class = "navbar-nav"> 
 
-        <li class = "nav-item0">
-            <a class= "nav-link" routerLinkActive = "active" routerLink = "welcome">Not Netflix</a>
-        </li>
+<mat-toolbar id = "navbar-expand-sm" class = "sticky mat-elevation-z100">
 
-        <li class = "nav-item1">
-            <a class= "nav-link" routerLinkActive = "active" routerLink = "signin">Sign In</a>
-        </li>
+    <!-- class="mat-elevation-z8" - to make shadow behind navbar -->
 
-        <li class = "nav-item2">
-            <a class= "nav-link" routerLinkActive = "active" routerLink = "signup">Sign Up</a>
-        </li>
+    <a mat-button class= "logo" routerLinkActive = "active" routerLink = "welcome">Not Netflix</a>
 
-    </ul>
+    <div class = "spacer"></div>
+<!-- put these 1st 2 on side of Not Netflix -->
+    <a mat-button class= "nav-link1" routerLinkActive = "active" routerLink = "signin">Sign In</a> 
 
-</nav>
+    <a mat-button class= "nav-link2" routerLinkActive = "active" routerLink = "signup">Sign Up</a>
+
+    <!-- make these last two an icon on other side of navbar -->
+    <a mat-button class= "nav-link2" routerLinkActive = "active" routerLink = "">About Us</a>
+
+    <a mat-button class= "nav-link2" routerLinkActive = "active" routerLink = "">Contact</a>
+    <a mat-button class= "nav-link2" routerLinkActive = "active" routerLink = "userhome">home</a>
+
+</mat-toolbar>

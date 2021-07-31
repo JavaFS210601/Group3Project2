@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import com.revature.models.User;
 import com.revature.services.UserService;
 
 @RestController
+@CrossOrigin
 public class UserController 
 {
 	private UserService us;

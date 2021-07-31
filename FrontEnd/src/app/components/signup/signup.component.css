@@ -7,9 +7,9 @@
     align-items: center;
     justify-content: center;
     /* background-image: url("../../../assets/images/p3-background.jpg"); */
-    background-image: url("../../../assets/images/maxresdefault.jpg");
+    /* background-image: url("../../../assets/images/maxresdefault.jpg"); */
     /* background-image: url("../../../assets/images/3c0c5337e8b00e6195359c40a4394805.jpg"); */
-    /* background-image: url("../../../assets/images/AU-en-20171225-popsignuptwoweeks-perspective_alpha_website_large.jpg"); */
+    background-image: url("../../../assets/images/AU-en-20171225-popsignuptwoweeks-perspective_alpha_website_large.jpg");
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -42,17 +42,17 @@ h3 {
     left:140px;
     color: rgb(247, 247, 231);
     font-family: Londrina Outline;
-    text-shadow: 0 0 10px gold, 0 0 20px firebrick, 0 0 40px pink, 0 0 80px red;
+    text-shadow: 0 0 10px rgb(3, 44, 5), 0 0 20px rgb(36, 46, 131), 0 0 40px rgb(255, 192, 192), 0 0 80px rgb(25, 0, 255);
     /* color: #d81919;   */
     font-size: 3rem;
     text-align: center;
 }
 
-.loginform {
+.signupform {
     position: relative;
     color: rgb(247, 247, 231);
     font-family: Londrina Outline;
-    box-shadow: 0 0 10px rgb(255, 123, 0), 0 0 20px rgb(184, 73, 0), 0 0 40px rgb(255, 192, 192), 0 0 80px rgb(25, 0, 255);
+    box-shadow: 0 0 10px rgb(3, 44, 5), 0 0 20px rgb(36, 46, 131), 0 0 40px rgb(2, 31, 36), 0 0 80px rgb(25, 0, 255);
     background-color: black;
     opacity: 0.85; 
     padding: 120px;

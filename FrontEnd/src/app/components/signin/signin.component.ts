@@ -41,13 +41,13 @@ export class SigninComponent implements OnInit {
       (data: User)  => { 
         this.userLogin = data;
         console.log(this.userLogin);
-        // location.assign('userhome'); //use the route path not the app-user-homepage selector!!!
+        location.assign('userhome'); //use the route path not the app-user-homepage selector!!!
         //this works and sends user to homepage. Now I need to be able to share sign in info w/ userhome & userprofile
       },
     
       () => {
         this.userLogin = null;
-        alert("Something went wrong signing you in!");
+        alert("Something went wrong! Please try again.");
         console.log("Something went wrong signing you in!");
       }
       );

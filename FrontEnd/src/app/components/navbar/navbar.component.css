@@ -1,6 +1,16 @@
+.sticky { 
+    padding: 0px;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    z-index: 10;
+} /*this is the class that lets the navbar move when scrolling takes place*/
+
+
 a:link, :visited, :active {
     text-decoration: none;
-    font-size: 15pt;
+    /* font-size: 15pt; */
+    font-family: Londrina Outline;
     font-weight: bolder;
     color:rgb(245, 237, 237);
     /* text-shadow: 0 0 10px gold, 0 0 20px firebrick, 0 0 40px pink, 0 0 80px red; */
@@ -12,26 +22,19 @@ a:hover {
     text-shadow: 0 0 10px gold, 0 0 20px firebrick, 0 0 40px pink, 0 0 80px red;
 }
 
-.navbar-expand-sm {
-    position:static;
-    background-color: rgb(19, 18, 18);
+#navbar-expand-sm {
+    background-color: black;
     padding: 0px;
 }
 
-.nav-item0{
-    color:rgb(236, 116, 35);
+.logo{
+    color:rgb(245, 237, 237);
     font-family: Londrina Outline;
+    font-size: 15pt;
     text-shadow: 0 0 10px gold, 0 0 20px firebrick, 0 0 40px pink, 0 0 80px red;
     margin:7pt;
 }
 
-.nav-item1{
-    font-family: Londrina Outline;
-    margin:7pt;
-}
-
-
-.nav-item2{
-    font-family: Londrina Outline;
-    margin:7pt;
+.spacer {
+    flex: 1 1 auto;
 }

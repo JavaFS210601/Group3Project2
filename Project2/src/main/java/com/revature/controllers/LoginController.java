@@ -42,7 +42,8 @@ public class LoginController
 //			session.setAttribute("user_id", user.getId());
 //			session.setAttribute("username", user.getUsername());
 					
-			return ResponseEntity.status(200).body(userFromDB);
+//			return ResponseEntity.status(200).body(userFromDB);
+			return ResponseEntity.status(200).build();
 		} 
 		
 		

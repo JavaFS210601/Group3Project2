@@ -1,6 +1,6 @@
 package com.revature.models;
 
-import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,8 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -28,45 +26,35 @@ public class Favorite
 	@JoinColumn(name="user_id", nullable = false, unique = true)
 	private User user;
 	//this is the relation for Favorite to Video
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-	@JoinTable(
-			name="favorite_videos_list",
-			joinColumns = @JoinColumn(name="favorite_id"),
-			inverseJoinColumns = @JoinColumn(name="video_id"))
-	private List<Video>favorite_videos_list;
+	@Column(name="movie_id")
+	private int movie_id;
 
 	public Favorite() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Favorite(User user, List<Video> favorite_videos_list) {
+	public Favorite(User user, int movie_id) {
 		super();
 		this.user = user;
-		this.favorite_videos_list = favorite_videos_list;
+		this.movie_id = movie_id;
 	}
 
-	public Favorite(int favorite_id, User user, List<Video> favorite_videos_list) {
+	public Favorite(int favorite_id, User user, int movie_id) {
 		super();
 		this.favorite_id = favorite_id;
 		this.user = user;
-		this.favorite_videos_list = favorite_videos_list;
+		this.movie_id = movie_id;
 	}
 
 	@Override
 	public String toString() {
-		return "Favorite [favorite_id=" + favorite_id + ", user=" + user + ", favorite_videos_list="
-				+ favorite_videos_list + "]";
+		return "Favorite [favorite_id=" + favorite_id + ", user=" + user + ", movie_id=" + movie_id + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + favorite_id;
-		result = prime * result + ((favorite_videos_list == null) ? 0 : favorite_videos_list.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
-		return result;
+		return Objects.hash(favorite_id, movie_id, user);
 	}
 
 	@Override
@@ -78,19 +66,7 @@ public class Favorite
 		if (getClass() != obj.getClass())
 			return false;
 		Favorite other = (Favorite) obj;
-		if (favorite_id != other.favorite_id)
-			return false;
-		if (favorite_videos_list == null) {
-			if (other.favorite_videos_list != null)
-				return false;
-		} else if (!favorite_videos_list.equals(other.favorite_videos_list))
-			return false;
-		if (user == null) {
-			if (other.user != null)
-				return false;
-		} else if (!user.equals(other.user))
-			return false;
-		return true;
+		return favorite_id == other.favorite_id && movie_id == other.movie_id && Objects.equals(user, other.user);
 	}
 
 	public int getFavorite_id() {
@@ -109,13 +85,15 @@ public class Favorite
 		this.user = user;
 	}
 
-	public List<Video> getVideos() {
-		return favorite_videos_list;
+	public int getMovie_id() {
+		return movie_id;
 	}
 
-	public void setVideos(List<Video> favorite_videos_list) {
-		this.favorite_videos_list = favorite_videos_list;
+	public void setMovie_id(int movie_id) {
+		this.movie_id = movie_id;
 	}
+
+	
 
 	
 	

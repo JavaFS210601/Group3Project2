@@ -68,7 +68,7 @@ export class UserHomepageComponent implements OnInit {
               console.log("data = "+ this.movieVideoResults.results[0].key);
               oneMovie.video_url = "https://www.youtube.com/embed/" + this.movieVideoResults.results[0].key;
               // this.sanitizer.bypassSecurityTrustUrl(oneMovie.video_url)
-              this.sanitizer.bypassSecurityTrustUrl(oneMovie.video_url);
+              oneMovie.safe_url = this.sanitizer.bypassSecurityTrustResourceUrl(oneMovie.video_url);
               console.log("oneMovie.video_url: " + oneMovie.video_url)
             }
           )
@@ -105,10 +105,11 @@ export class UserHomepageComponent implements OnInit {
     )
   }
  
-  public sanitizeVideo(aString:string):String
-{
-  return String(this.sanitizer.bypassSecurityTrustUrl(aString));
-}
+//   public sanitizeVideo(aString:string)
+// {
+//   console.log(aString);
+//   return this.sanitizer.bypassSecurityTrustResourceUrl(aString);
+// }
 
 }
 

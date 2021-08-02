@@ -20,3 +20,49 @@
   /* padding: 70px;
   margin: 20px;
 } */
+
+#video-container
+{
+  background-color: rgb(66, 66, 66);
+  color:aliceblue;
+}
+
+#movie-search
+{
+  background-color: black;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#movie-search-input
+{
+  background-color: rgb(247, 190, 117);
+  border: solid 2px aliceblue;
+  margin-right: 5px;
+}
+
+#movie-search-button
+{
+  background-color: rgb(247, 190, 117);
+  border-radius: 10px;
+  border: solid 2px aliceblue;
+}
+
+#number-of-search-pages
+{
+  background-color: black;
+  color: aliceblue;
+  text-align: center;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.movie-item
+{
+  border:solid 2px black;
+}
+

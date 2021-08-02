@@ -1,31 +1,49 @@
 <br>
-<div class="container">
 
-<p>Search Movie: </p>     
-<input type = "text" placeholder = "moon" name = "movie" [(ngModel)] = "movieSearch" required ngModel/>
-<button (click) = "searchForMovies()">Search</button>
-
-
-<div class = "row">
-
-  <div *ngFor = "let movie of movieSearchResult.results" class = "col-sm-12 col-md-6 col-lg-4">
-
-    <h2>Movie ID {{movie.id}}</h2>
-    <p>Title {{movie.original_title}}</p>
-    <p>Overview {{movie.overview}}</p>
-    <p>IMDB ID {{movie.imdb_id}}</p>
-    <p>Popularity{{movie.popularity}}</p>
-    <p>Status {{movie.status}}</p>
-    <img src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" alt="Chicago" width="500" height="500">
-    <p>Release Date{{movie.release_date}}</p>
-    <img src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}" alt="Chicago" width="500" height="500">
-  
-  </div>
-
-
+<br>
+<div class="container-fluid" id="movie-search">
+  <span style="color:aliceblue">Search Movies: </span>
+  <input type = "text" placeholder = "moon" name = "movie" id="movie-search-input" [(ngModel)] = "movieSearch" required ngModel/>
+  <button (click) = "searchForMovies()" id="movie-search-button">Search</button>
+  <span style="color:aliceblue; padding-left: 5px;">Search Videos: </span>
+  <input type = "text" placeholder = "notMoon" name = "movie" id="movie-search-input" [(ngModel)] = "videoSearch" required ngModel/>
+  <button (click) = "searchForMovieVideos()" id="movie-search-button">Search</button>
 </div>
 
+<div class="container-fluid" id="video-container">
+  <div class = "row">
+    <div *ngFor = "let movie of fullResults" class = "col-sm-12 col-lg-6 col-xl-4  movie-item">
 
+      <h2>Movie ID: {{movie.id}}</h2>
+      <p>Title: {{movie.original_title}}</p>
+      <p>Release Date: {{movie.release_date}}</p>
+      <p>Overview: {{movie.overview}}</p>
+      <p>IMDB ID: <a href="https://www.imdb.com/title/{{movie.imdb_id}}" target="_blank">{{movie.imdb_id}}</a></p>
+      <!-- <p>IMDB ID: {{movie.imdb_id}}</p> -->
+      <p>Popularity: {{movie.popularity}}</p>
+      <p>Status: {{movie.status}}</p>
+        
+        <a href="https://google.com/search?q={{movie.original_title}}" target="_blank">
+          <img src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" alt="Movie Poster" width="350" height="504" class="movie-poster"> <!-- -->
+        </a>
+        <iframe class="e2e-iframe-trusted-src" width="560" height="315" [src]="sanitizeVideo(movie.video_url)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br>
+    </div>
+    <div *ngFor = "let video of movieVideos" class = "col-sm-12 col-lg-6 col-xl-4  movie-item">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/{{video.key}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<div id="number-of-search-pages" *ngIf ="movieSearchResult">
+  <div *ngIf="movieSearchResult.total_pages == 1">
+    <p>1</p>
+  </div>
+  <div *ngIf="movieSearchResult.total_pages > 1">
+    <p>it's bigger than 1</p>
+  </div>
+  
+
+</div>
 <router-outlet></router-outlet>
 
     

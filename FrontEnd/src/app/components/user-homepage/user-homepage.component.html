@@ -3,12 +3,11 @@
 <br>
 <div class="container-fluid" id="movie-search">
   <span style="color:aliceblue">Search Movies: </span>
-  <input type = "text" placeholder = " moon" name = "movie" id="movie-search-input" [(ngModel)] = "movieSearch" required ngModel/>
+  <input type = "text" placeholder = "moon" name = "movie" id="movie-search-input" [(ngModel)] = "movieSearch" required ngModel/>
   <button (click) = "searchForMovies()" id="movie-search-button">Search</button>
   <span style="color:aliceblue; padding-left: 5px;">Search Videos: </span>
   <input type = "text" placeholder = "notMoon" name = "movie" id="movie-search-input" [(ngModel)] = "videoSearch" required ngModel/>
-  <button (click) = "searchForMovieVideos()" id="movie-search-button">Search</button> 
-
+  <button (click) = "searchForMovieVideos()" id="movie-search-button">Search</button>
 </div>
 
 <div class="container-fluid" id="video-container">
@@ -45,7 +44,14 @@
   
 
 </div>
-
+<div id="number-of-search-pages" *ngIf ="movieSearchResult">
+  <div *ngIf="movieSearchResult.total_pages == 1">
+    <p>1</p>
+  </div>
+  <div *ngIf="movieSearchResult.total_pages > 1">
+    <p>it's bigger than 1</p>
+  </div>
+  
 
 
 

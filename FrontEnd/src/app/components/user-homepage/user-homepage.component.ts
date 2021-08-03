@@ -110,17 +110,27 @@ export class UserHomepageComponent implements OnInit {
 //   console.log(aString);
 //   return this.sanitizer.bypassSecurityTrustResourceUrl(aString);
 // }
+<<<<<<< HEAD
+
+}
+
+=======
+>>>>>>> ffc1446b4c9c2d445f78ed6c6d34849a13e8e0eb
 
 }
 
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> ffc1446b4c9c2d445f78ed6c6d34849a13e8e0eb
 // function removeElementsByClass(className: string){
 //   const elements = document.getElementsByClassName(className);
 //   while(elements.length > 0){
 //       elements[0].parentNode.removeChild(elements[0]);
 //   }
+<<<<<<< HEAD
 // }
 // import { Component, OnInit } from '@angular/core';
 // import { Moviesearchresults } from 'src/app/models/moviesearchresults';
@@ -165,3 +175,6 @@ export class UserHomepageComponent implements OnInit {
 //     );
 //   }
 // }
+=======
+// }
+>>>>>>> ffc1446b4c9c2d445f78ed6c6d34849a13e8e0eb

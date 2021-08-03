@@ -1,6 +1,7 @@
 package com.revature.models;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,8 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="watched")
-public class Watched 
+@Table(name="watch_Later")
+public class Watch_Later 
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -28,44 +29,35 @@ public class Watched
 	@JoinColumn(name="user_id", nullable = false, unique = true)
 	private User user;
 	//This is the relation for Watched to Video
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-	@JoinTable(
-			name="watched_videos_list",
-			joinColumns = @JoinColumn(name="watched_id"),
-			inverseJoinColumns = @JoinColumn(name="video_id"))
-	private List<Video> watched_videos_list;
+	@Column(name="movie_id")
+	private int movie_id;
 
-	public Watched() {
+	public Watch_Later() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Watched(User user, List<Video> watched_videos_list) {
+	public Watch_Later(User user, int movie_id) {
 		super();
 		this.user = user;
-		this.watched_videos_list = watched_videos_list;
+		this.movie_id = movie_id;
 	}
 
-	public Watched(int watched_id, User user, List<Video> watched_videos_list) {
+	public Watch_Later(int watched_id, User user, int movie_id) {
 		super();
 		this.watched_id = watched_id;
 		this.user = user;
-		this.watched_videos_list = watched_videos_list;
+		this.movie_id = movie_id;
 	}
 
 	@Override
 	public String toString() {
-		return "Watched [watched_id=" + watched_id + ", \nuser=" + user + ", \nwatched_videos_list=" + watched_videos_list + "]";
+		return "Watched [watched_id=" + watched_id + ", user=" + user + ", movie_id=" + movie_id + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
-		result = prime * result + ((watched_videos_list == null) ? 0 : watched_videos_list.hashCode());
-		result = prime * result + watched_id;
-		return result;
+		return Objects.hash(movie_id, user, watched_id);
 	}
 
 	@Override
@@ -76,20 +68,8 @@ public class Watched
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Watched other = (Watched) obj;
-		if (user == null) {
-			if (other.user != null)
-				return false;
-		} else if (!user.equals(other.user))
-			return false;
-		if (watched_videos_list == null) {
-			if (other.watched_videos_list != null)
-				return false;
-		} else if (!watched_videos_list.equals(other.watched_videos_list))
-			return false;
-		if (watched_id != other.watched_id)
-			return false;
-		return true;
+		Watch_Later other = (Watch_Later) obj;
+		return movie_id == other.movie_id && Objects.equals(user, other.user) && watched_id == other.watched_id;
 	}
 
 	public int getWatched_id() {
@@ -108,13 +88,16 @@ public class Watched
 		this.user = user;
 	}
 
-	public List<Video> getVideos() {
-		return watched_videos_list;
+	public int getMovie_id() {
+		return movie_id;
 	}
 
-	public void setVideos(List<Video> watched_videos_list) {
-		this.watched_videos_list = watched_videos_list;
+	public void setMovie_id(int movie_id) {
+		this.movie_id = movie_id;
 	}
+	
+	
+
 	
 	
 }

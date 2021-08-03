@@ -2,12 +2,15 @@
   width: 50%;
   height: 50%;
 }
+
+
 .homepageBox {
   position: absolute;
   background-color: grey;
   left:700px;
   padding: 100px;
 }
+
 .userprofileBox {
   position: absolute;
   background-color: rgb(85, 82, 82);
@@ -28,13 +31,8 @@
 {
   background-color: black;
   text-align: center;
-<<<<<<< HEAD
-  padding-top: 20px;
-  padding-bottom: 20px;
-=======
   padding-top: 10px;
   padding-bottom: 10px;
->>>>>>> ffc1446b4c9c2d445f78ed6c6d34849a13e8e0eb
 }
 
 #movie-search-input
@@ -66,9 +64,5 @@ img {
 .movie-item
 {
   border:solid 2px black;
-<<<<<<< HEAD
-}
-=======
 }
 
->>>>>>> ffc1446b4c9c2d445f78ed6c6d34849a13e8e0eb

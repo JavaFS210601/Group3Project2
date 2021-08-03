@@ -6,6 +6,8 @@ import { MovieVideoResultsList } from 'src/app/models/movie-video-results-list';
 import { Moviesearchresults } from 'src/app/models/moviesearchresults';
 import { ApimoviesService } from 'src/app/services/apimovies.service';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import { FavoriteListService } from 'src/app/services/favorite-list.service';
+import { WatchListService } from 'src/app/services/watch-list.service';
 
 @Component({
   selector: 'app-user-homepage',
@@ -28,7 +30,10 @@ export class UserHomepageComponent implements OnInit {
 
   public movieVideos:Array<MovieVideo> = [];
 
-  constructor(private movieService:ApimoviesService, private sanitizer: DomSanitizer) { }
+  constructor(private movieService:ApimoviesService, 
+    private sanitizer: DomSanitizer,
+    private favoriteService:FavoriteListService,
+    private watchLaterService:WatchListService) { }
 
   ngOnInit(): void {
   }
@@ -105,76 +110,32 @@ export class UserHomepageComponent implements OnInit {
     )
   }
  
+  addToFavorite(id:number)
+  {
+    console.log("adding id: " + id);
+    this.favoriteService.addToList(id).subscribe();
+    console.log("AFTER THE INSETION TO FAVORITE");
+  }
+  addToWatchLater(id:number)
+  {
+    console.log("adding id: " + id);
+    this.watchLaterService.addToList(id).subscribe();
+    console.log("AFTER THE INSETION TO WATCH");
+  }
 //   public sanitizeVideo(aString:string)
 // {
 //   console.log(aString);
 //   return this.sanitizer.bypassSecurityTrustResourceUrl(aString);
 // }
-<<<<<<< HEAD
-
-}
-
-=======
->>>>>>> ffc1446b4c9c2d445f78ed6c6d34849a13e8e0eb
 
 }
 
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> ffc1446b4c9c2d445f78ed6c6d34849a13e8e0eb
 // function removeElementsByClass(className: string){
 //   const elements = document.getElementsByClassName(className);
 //   while(elements.length > 0){
 //       elements[0].parentNode.removeChild(elements[0]);
 //   }
-<<<<<<< HEAD
 // }
-// import { Component, OnInit } from '@angular/core';
-// import { Moviesearchresults } from 'src/app/models/moviesearchresults';
-// import { ApimoviesService } from 'src/app/services/apimovies.service';
-
-
-// @Component({
-//   selector: 'app-user-homepage',
-//   templateUrl: './user-homepage.component.html',
-//   styleUrls: ['./user-homepage.component.css']
-// })
-// export class UserHomepageComponent implements OnInit {
-
-//   public movieSearch:string="";
-
-//   public movieSearchResult:any=null;
-
-//   constructor(private movieService:ApimoviesService) {
-
-//    }
-
-//   ngOnInit(): void {
-
-//   }
-
-//   searchForMovies():void {
-
-//     let movie:string = this.movieSearch;
-
-//     this.movieService.searchForMovies(movie).subscribe(
-//       (data:Moviesearchresults) => {
-//         this.movieSearchResult = data;
-//         console.log(this.movieSearchResult);
-//       },
-
-//       () => {
-//         this.movieSearchResult = null;
-//         alert("Something went wrong signing you in!");
-//         console.log("Something went wrong signing you in!");
-//       }
-
-//     );
-//   }
-// }
-=======
-// }
->>>>>>> ffc1446b4c9c2d445f78ed6c6d34849a13e8e0eb

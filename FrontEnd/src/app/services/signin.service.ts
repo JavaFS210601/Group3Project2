@@ -18,6 +18,6 @@ export class SigninService {
 
 
   signInUser(userCredentials:any): Observable<User> {
-    return this.http.post('http://localhost:9000/notNetflix/login', userCredentials) as Observable<User>;
+    return this.http.post('http://localhost:9000/notNetflix/login', userCredentials, {withCredentials: true}) as Observable<User>;
   }
 }

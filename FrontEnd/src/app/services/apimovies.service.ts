@@ -2,10 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Movie } from '../models/movie';
-<<<<<<< HEAD
-=======
 import { MovieVideo } from '../models/movie-video';
->>>>>>> ffc1446b4c9c2d445f78ed6c6d34849a13e8e0eb
 import { MovieVideoResultsList } from '../models/movie-video-results-list';
 import { Moviesearchresults } from '../models/moviesearchresults';
 

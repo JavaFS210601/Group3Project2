@@ -3,15 +3,26 @@ package com.revature.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+<<<<<<< HEAD
+import org.springframework.web.bind.annotation.GetMapping;
+=======
+>>>>>>> origin/najmendes
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.revature.models.User;
 import com.revature.services.UserService;
 
 @RestController
+<<<<<<< HEAD
+@CrossOrigin(origins = {"http://localhost:4200"}, methods = RequestMethod.POST.GET)
+=======
 @CrossOrigin
+>>>>>>> origin/najmendes
 public class UserController 
 {
 	private UserService us;
@@ -40,5 +51,13 @@ public class UserController
 		
 		//406 Not Acceptable. User id was not correct
 		return ResponseEntity.status(406).build();
+	}
+	@GetMapping("/testing")
+	@ResponseBody
+	public ResponseEntity testingSessions(@SessionAttribute("user") User user)
+	{
+		
+		//return ResponseEntity.status(200).body(request.getAttributeNames());
+		return ResponseEntity.status(200).body(user);
 	}
 }

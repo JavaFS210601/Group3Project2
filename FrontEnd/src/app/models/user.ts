@@ -7,7 +7,8 @@ export class User {
         public email:string,
         public username:string,
         public password:string,
-        public join_date:Date
+        public join_date:number
+        //join_date needs to be a number
     ){}
 
 

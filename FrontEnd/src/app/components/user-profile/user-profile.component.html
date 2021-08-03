@@ -1,15 +1,30 @@
 <br>
 <br>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <form class = "updateprofileform">
-    <h1>Profile</h1>
-    <input class = "col-sm-1" type = "text" placeholder = "username" name = "username" [(ngModel)] = "username" required ngModel/>
+    <h3>Profile</h3>
+    <p>Account ID: {{profile_id}}</p>
+    <p>Name: {{profile_firstname}} {{profile_lastname}}</p>
+    <p>Username: {{profile_username}}</p>
     <br>
-    <input class = "col-sm-1" type = "password" placeholder = "password" name = "password" [(ngModel)] = "password" required ngModel/>
+    <p>Email: {{profile_email}}</p>
+    <input type = "text"  name = "email" [(ngModel)] = "email" required ngModel/>
     <br>
-    <button id = "viewInfoButton" class = "btn btn-info" (click) = "signIn()">View Info</button>
+    <button class = "btn btn-info" (click) = "updateEmail()">Update</button>
     <br>
-    <div id = "profileTableHead"></div>
+    <br>
+    <p>Password: </p>     
+    <input type = "password" placeholder = "........." name = "password" [(ngModel)] = "password" required ngModel/>
+    <br>
+    <button class = "btn btn-info" (click) = "updatePassword()">Update</button>
+    <br>
 
 </form>
 
+        <!-- <button class = "btn btn-primary">Update Profile Info</button> -->
+<!-- <button class = "btn btn-danger" (click) = "updateProfileInfo()">Sign In</button> -->

@@ -3,7 +3,6 @@ import { SafeResourceUrl } from "@angular/platform-browser";
 export class Movie {
 
 
-
     constructor (
         public id:number,
         public original_title:string,
@@ -17,6 +16,7 @@ export class Movie {
         public video_url: string,
         public safe_url: SafeResourceUrl
     ){}
+
 
 
 }

@@ -6,6 +6,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -45,7 +46,7 @@ public class LoginController
 			user = us.getFullUser(user);
 			user.setPassword("");
 			session.setAttribute("user", user);
-			System.out.println("hello");
+			System.out.println("After assignment, getAttribute returns: " + session.getAttribute("user"));
 			Cookie cookie = new Cookie("Greeting", "Hello");
 			response.addCookie(cookie);
 			return ResponseEntity.status(200).body(user);

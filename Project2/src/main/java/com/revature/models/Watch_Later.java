@@ -25,9 +25,15 @@ public class Watch_Later
 	@Column(name="watched_id")
 	private int watched_id;
 	//this is the relation for Watched to User
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)//, cascade = CascadeType.ALL <-causes errors
-	@JoinColumn(name="user_id", nullable = false, unique = true)
-	private User user;
+//	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)//, cascade = CascadeType.ALL <-causes errors
+//	@JoinColumn(name="user_id", nullable = false, unique = true)
+//	private User user;
+	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.REMOVE)
+	@JoinTable(
+			name="watch_join",
+			joinColumns = @JoinColumn(name="watched_id"),
+			inverseJoinColumns = @JoinColumn(name="user_id"))
+	private List<User> user;
 	//This is the relation for Watched to Video
 	@Column(name="movie_id")
 	private int movie_id;
@@ -37,13 +43,13 @@ public class Watch_Later
 		// TODO Auto-generated constructor stub
 	}
 
-	public Watch_Later(User user, int movie_id) {
+	public Watch_Later(List<User> user, int movie_id) {
 		super();
 		this.user = user;
 		this.movie_id = movie_id;
 	}
 
-	public Watch_Later(int watched_id, User user, int movie_id) {
+	public Watch_Later(int watched_id, List<User> user, int movie_id) {
 		super();
 		this.watched_id = watched_id;
 		this.user = user;
@@ -52,7 +58,7 @@ public class Watch_Later
 
 	@Override
 	public String toString() {
-		return "Watched [watched_id=" + watched_id + ", user=" + user + ", movie_id=" + movie_id + "]";
+		return "Watch_Later [watched_id=" + watched_id + ", user=" + user + ", movie_id=" + movie_id + "]";
 	}
 
 	@Override
@@ -80,11 +86,11 @@ public class Watch_Later
 		this.watched_id = watched_id;
 	}
 
-	public User getUser() {
+	public List<User> getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(List<User> user) {
 		this.user = user;
 	}
 
@@ -95,9 +101,7 @@ public class Watch_Later
 	public void setMovie_id(int movie_id) {
 		this.movie_id = movie_id;
 	}
-	
-	
 
-	
+		
 	
 }

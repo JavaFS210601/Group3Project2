@@ -1,19 +1,18 @@
-<!-- WORKING ON GETTING A SIGN IN DIALOG    -->
+<div class = "movieBackground">
 
-<!-- <h2 mat-dialog-title>{{description}}</h2>
+<!-- <div *ngIf = 'messageTrue'>User logged in successfully</div> -->
 
-<mat-dialog-content [formGroup]="form">
-  
-    <mat-form-field>
-        <input matInput
-                placeholder="Course Description"
-               formControlName="description">
-    </mat-form-field>
-      
- 
-</mat-dialog-content>
+<form class = "loginform">
+<h3>Sign In</h3>
+<br>
+<input type = "text" placeholder = "username" name = "username" [(ngModel)] = "username" required ngModel/>
+<br>
+<br>
+<input type = "password" placeholder = "password" name = "password" [(ngModel)] = "password" required ngModel/>
+<!-- <input type = "password" placeholder = "password" name = "password" required ngModel/> -->
+<br>
+<br>
+<button class = "btn btn-danger" (click) = "signIn()">Sign In</button>
+</form>
 
-<mat-dialog-actions>
-    <button class="mat-raised-button"(click)="close()">Close</button>
-    <button class="mat-raised-button mat-primary"(click)="save()">Sign in</button>
-</mat-dialog-actions> -->
+</div>

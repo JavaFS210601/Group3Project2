@@ -1,1 +1,23 @@
-<p>signup works!</p>
+<div class = "movieBackground">
+  
+    <form class = "loginform">
+    <h3>Sign Up</h3>
+    <input type = "text" placeholder = "First Name" name = "first_name" [(ngModel)] = "first_name" required ngModel/>
+    <br>
+    <br>
+    <input type = "text" placeholder = "Last Name" name = "last_name" [(ngModel)] = "last_name" required ngModel/>
+    <br>
+    <br>
+    <input type = "text" placeholder = "email (abcd@bemail.com)" name = "email" [(ngModel)] = "email" required ngModel/>
+    <br>
+    <br>
+    <input type = "text" placeholder = "username" name = "username" [(ngModel)] = "username" required ngModel/>
+    <br>
+    <br>
+    <input type = "password" placeholder = "password" name = "password" [(ngModel)] = "password" required ngModel/>
+    <br>
+    <br>
+    <button class = "btn btn-danger" (click)="signUp()">Sign Up</button>
+    </form>
+
+</div>

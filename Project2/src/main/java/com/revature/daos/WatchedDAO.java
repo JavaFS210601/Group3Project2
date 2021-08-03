@@ -1,6 +1,12 @@
 package com.revature.daos;
 
-public interface WatchedDAO
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.revature.models.Watch_Later;
+
+@Repository
+public interface WatchedDAO extends JpaRepository<Watch_Later, Integer>
 {
 	/*These are here for easy copy/paste
 	Session ses = HibernateUtil.getSession();

@@ -1,6 +1,12 @@
 package com.revature.daos;
 
-public interface FavoriteDAO 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.revature.models.Favorite;
+
+@Repository
+public interface FavoriteDAO extends JpaRepository<Favorite, Integer>
 {
 	/*These are here for easy copy/paste
 	Session ses = HibernateUtil.getSession();

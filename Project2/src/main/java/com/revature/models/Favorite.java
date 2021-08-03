@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
@@ -10,7 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,9 +24,15 @@ public class Favorite
 	@Column(name="favorite_id")
 	private int favorite_id;
 	//this is the relation for Favorite to User
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-	@JoinColumn(name="user_id", nullable = false, unique = true)
-	private User user;
+//	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+//	@JoinColumn(name="user_id", nullable = false, unique = true)
+//	private User user;
+	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.REMOVE)
+	@JoinTable(
+			name="favorite_join",
+			joinColumns = @JoinColumn(name="favorite_id"),
+			inverseJoinColumns = @JoinColumn(name="user_id"))
+	private List<User> user;
 	//this is the relation for Favorite to Video
 	@Column(name="movie_id")
 	private int movie_id;
@@ -34,13 +42,13 @@ public class Favorite
 		// TODO Auto-generated constructor stub
 	}
 
-	public Favorite(User user, int movie_id) {
+	public Favorite(List<User> user, int movie_id) {
 		super();
 		this.user = user;
 		this.movie_id = movie_id;
 	}
 
-	public Favorite(int favorite_id, User user, int movie_id) {
+	public Favorite(int favorite_id, List<User> user, int movie_id) {
 		super();
 		this.favorite_id = favorite_id;
 		this.user = user;
@@ -77,11 +85,11 @@ public class Favorite
 		this.favorite_id = favorite_id;
 	}
 
-	public User getUser() {
+	public List<User> getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(List<User> user) {
 		this.user = user;
 	}
 
@@ -92,6 +100,8 @@ public class Favorite
 	public void setMovie_id(int movie_id) {
 		this.movie_id = movie_id;
 	}
+
+	
 
 	
 

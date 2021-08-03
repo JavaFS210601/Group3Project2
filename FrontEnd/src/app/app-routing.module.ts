@@ -8,15 +8,17 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const routes: Routes = [
 
-  {path:'' , component:WelcomeComponent },
+  {path:'', component: WelcomeComponent },
+  {
+    path: '',
+    redirectTo: '/welcome',
+    pathMatch: 'full'
+},
   {path:'welcome', component: WelcomeComponent },
   {path:'userhome', component: UserHomepageComponent },
   {path:'userprofile', component: UserProfileComponent },
   {path:'signin', component: SigninComponent },
   {path:'signup', component: SignupComponent }
-  
-
-
 ];
 
 @NgModule({

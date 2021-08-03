@@ -36,6 +36,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatToolbarModule,
     MatButtonModule
   ],
+  entryComponents: [
+    UserHomepageComponent,
+    SigninComponent,
+    UserHomepageComponent,
+    UserProfileComponent
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

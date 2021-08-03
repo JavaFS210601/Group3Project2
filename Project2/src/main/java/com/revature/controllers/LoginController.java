@@ -43,7 +43,7 @@ public class LoginController
 //			session.setAttribute("username", user.getUsername());
 					
 //			return ResponseEntity.status(200).body(userFromDB);
-			return ResponseEntity.status(200).build();
+			return ResponseEntity.status(200).body(userFromDB);
 		} 
 		
 		
